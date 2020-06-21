@@ -1,0 +1,50 @@
+<div class="divTable blueTable">
+    <div class="divTableHeading">
+        <div class="divTableRow">
+            <div class="divTableHead">Comments</div>
+            <div class="divTableHead">Vote<br /> Count</div>
+            <div class="divTableHead">UpVote</div>
+            <div class="divTableHead detailsCell">News Details</div>
+        </div>
+    </div>
+    <div class="divTableBody">
+        <div class="divTableRow" *ngFor="let item of newsList">
+            <ng-container *ngIf="!item.hide">
+                <div class="divTableCell">{{item.num_comments ? item.num_comments : 0}}</div>
+                <div class="divTableCell">{{item.points}}</div>
+                <div class="divTableCell">
+                    <a id="">
+                        <div class="votearrow" title="upvote" (click)="upvote(item, newsList)"></div>
+                    </a>
+                </div>
+                <div class="divTableCell detailsCell">
+                    <a href="{{item.url}}" target="_blank" class="news-link">
+                        {{item.title}}
+                    </a>
+                    <span class="news-link-sub">by</span>
+                    <a href="{{item.url}}" target="_blank" class="news-link-author">
+                        {{item.author}}
+                    </a>
+                    <span class="news-link-sub">{{item.created_at | dateAgo}}</span>
+                    &nbsp;
+                    <span class="news-link-sub">[</span>
+                    <a (click)="hide(item, newsList)" class="news-link-hide">
+                        hide
+                    </a>
+                    <span class="news-link-sub">]</span>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div class=" blueTable outerTableFooter">
+    <div class="tableFootStyle">
+        <div class="links">
+            <a (click)="changePage(-1);" [class.disabled]="page <= 1">&laquo; Previous</a>
+            <a (click)="changePage(1);" [class.disabled]="page >= nbPages">Next &raquo;</a></div>
+    </div>
+</div>
+
+<p-chart type="line" [data]="chartData" [options]="chartOptions" width="98vw" height="50vh" responsive="true"></p-chart>
+
+<div class="loader" *ngIf="dataLoding"></div>

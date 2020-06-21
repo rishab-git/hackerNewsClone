@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$secondary-color: #7d8082;
+$bg-color: #FE6600;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  margin: 0;
+
+  .loader{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+  }
+}

@@ -1,0 +1,107 @@
+@import '../../styles.scss';
+
+
+div.blueTable {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+    border: 0px solid #AAAAAA;
+    padding: 3px 2px;
+  }
+  .divTable.blueTable .divTableRow:nth-child(even) {
+    background: #E6E6E0;
+  }
+  .divTable.blueTable .divTableHeading {
+    background: $bg-color;
+  }
+  .divTable.blueTable .divTableHeading .divTableHead {
+    font-size: 12px;
+    font-weight: normal;
+    color: #FFFFFF;
+    // text-align: center;
+    vertical-align: bottom;
+  }
+  .blueTable .tableFootStyle {
+    font-size: 14px;
+    font-weight: normal;
+    color: #FFFFFF;
+  }
+  .blueTable .tableFootStyle {
+    font-size: 14px;
+    border-bottom: 4px solid $bg-color;
+  }
+  .blueTable .tableFootStyle .links {
+       text-align: right;
+  }
+  .blueTable .tableFootStyle .links a{
+    display: inline-block;
+    color: $bg-color;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+  .blueTable.outerTableFooter {
+    border-top: none;
+  }
+  .blueTable.outerTableFooter .tableFootStyle {
+    padding: 3px 5px; 
+  }
+  /* DivTable.com */
+  .divTable{ display: table; }
+  .divTableRow { display: table-row; }
+  .divTableHeading { display: table-header-group;}
+  .divTableCell, .divTableHead { display: table-cell;}
+  .divTableHead.detailsCell { text-align:left;}
+  .divTableCell.detailsCell { width: 80%; text-align:left;};
+  .divTableHeading { display: table-header-group;}
+  .divTableFoot { display: table-footer-group;}
+  .divTableBody { display: table-row-group;}
+
+  .votearrow{
+    width: 10px;
+    height: 10px;
+    border: 0px;
+    background: url('../../assets/images/grayarrow.gif') no-repeat;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .blueTable {
+    .tableFootStyle .links {
+       a {
+          cursor: pointer;
+        }
+
+        a.disabled {
+          color: gray;
+          cursor: not-allowed;
+          pointer-events: none;
+          text-decoration: underline;
+      }
+    }
+
+    .news-link {
+      color:$primary-color;
+      text-decoration: none;
+    }
+
+    .news-link-sub, .news-link-author{
+      color:$secondary-color;
+      font-size: 12px;
+    }
+
+    .news-link-author, .news-link-hide{
+      color:$primary-color;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .news-link-hide {
+      cursor: pointer;
+    }
+
+  }
+
+
