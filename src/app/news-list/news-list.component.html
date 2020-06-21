@@ -1,5 +1,5 @@
-<div class="divTable blueTable">
-    <div class="divTableHeading">
+<div class="divTable blueTable" aria-labelledby="newsList" role="table">
+    <div class="divTableHeading" role="rowgroup">
         <div class="divTableRow">
             <div class="divTableHead">Comments</div>
             <div class="divTableHead">Vote<br /> Count</div>
@@ -7,7 +7,7 @@
             <div class="divTableHead detailsCell">News Details</div>
         </div>
     </div>
-    <div class="divTableBody">
+    <div class="divTableBody" role="rowgroup">
         <div class="divTableRow" *ngFor="let item of newsList">
             <ng-container *ngIf="!item.hide">
                 <div class="divTableCell">{{item.num_comments ? item.num_comments : 0}}</div>
@@ -22,7 +22,7 @@
                         {{item.title}}
                     </a>
                     <span class="news-link-sub">by</span>
-                    <a href="{{item.url}}" target="_blank" class="news-link-author">
+                    <a class="news-link-author">
                         {{item.author}}
                     </a>
                     <span class="news-link-sub">{{item.created_at | dateAgo}}</span>
@@ -40,8 +40,10 @@
 <div class=" blueTable outerTableFooter">
     <div class="tableFootStyle">
         <div class="links">
-            <a (click)="changePage(-1);" [class.disabled]="page <= 1">&laquo; Previous</a>
-            <a (click)="changePage(1);" [class.disabled]="page >= nbPages">Next &raquo;</a></div>
+            <a (click)="changePage(-1);" [class.disabled]="page <= 1" [attr.aria-disabled]="page <= 1">&laquo;
+                Previous</a>
+            <a (click)="changePage(1);" [class.disabled]="page >= nbPages" [attr.aria-disabled]="page >= nbPages">Next
+                &raquo;</a></div>
     </div>
 </div>
 
