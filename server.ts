@@ -21,12 +21,14 @@ import * as express from 'express';
 import { join } from 'path';
 
 import 'localstorage-polyfill';
+const compression = require('compression');
 
 // tslint:disable-next-line: no-string-literal
 global['localStorage'] = localStorage;
 
 // Express server
 const app = express();
+app.use(compression());
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
