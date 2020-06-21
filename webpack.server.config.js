@@ -19,14 +19,7 @@ module.exports = {
     minimizer: [new TerserPlugin({
       cache: true,
       parallel: true,
-      include: /\.js$/,
-      chunkFilter: (chunk) => {
-        // Exclude uglification for the `vendor` chunk
-        if (chunk.name === 'vendor') {
-          return false;
-        }
-        return true;
-      }
+      include: /\.js$/
     })]
   },
   output: {
