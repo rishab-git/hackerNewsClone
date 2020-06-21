@@ -46,6 +46,7 @@ module.exports = {
       /(.+)?express(\\|\/)(.+)?/,
       path.join(__dirname, 'src'),
       {}
-    )
+    ),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ]
 };
