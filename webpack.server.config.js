@@ -2,7 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-
+const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   mode: 'none',
   entry: {
@@ -15,7 +15,19 @@ module.exports = {
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
   optimization: {
-    minimize: true
+    minimize: false,
+    minimizer: [new TerserPlugin({
+      cache: true,
+      parallel: true,
+      include: /\.js$/,
+      chunkFilter: (chunk) => {
+        // Exclude uglification for the `vendor` chunk
+        if (chunk.name === 'vendor') {
+          return false;
+        }
+        return true;
+      }
+    })]
   },
   output: {
     // Puts the output at the root of the dist folder
