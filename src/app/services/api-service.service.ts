@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiServiceService {
 
-  baseUrl = 'http://hn.algolia.com/api/v1/';
+  baseUrl = 'https://hn.algolia.com/api/v1/';
   newListUrl = this.baseUrl + 'search';
 
   constructor(private http: HttpClient) { }
