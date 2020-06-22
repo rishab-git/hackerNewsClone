@@ -8,7 +8,7 @@ import { NewsListComponent } from './news-list/news-list.component';
 
 import { ChartModule } from 'primeng/chart';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
-
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    TransferHttpCacheModule,
     AppRoutingModule,
     HttpClientModule,
     ChartModule

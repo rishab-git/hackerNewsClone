@@ -27,9 +27,10 @@ export class NewsListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.page = +(params.page ? params.page : 1); // (+) converts string 'id' to a number
-      if (isPlatformBrowser(this._platformId)) {
-        this.getNews(this.page);
-      }
+      // if (isPlatformBrowser(this._platformId)) {
+      // if (this.page) {
+      this.getNews(this.page);
+      // }
     });
 
     this.chartOptions = {
