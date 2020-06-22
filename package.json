@@ -11,7 +11,7 @@
     "compile:server": "webpack -p --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run hackerNewsClone:server:production --bundleDependencies=all",
+    "build:client-and-server-bundles": "ng build --prod --buildOptimizer=true && ng run hackerNewsClone:server:production --bundleDependencies all",
     "start:heroku": "node dist/server",
     "postinstall": "npm run build:ssr"
   },
@@ -32,7 +32,6 @@
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
     "chart.js": "^2.9.3",
     "express": "^4.15.2",
-    "express-minify-html": "^0.12.0",
     "localstorage-polyfill": "^1.0.1",
     "primeng": "^9.1.0",
     "rxjs": "~6.4.0",
