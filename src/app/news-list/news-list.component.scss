@@ -68,8 +68,23 @@ div.blueTable {
     cursor: pointer;
   }
 
-  .blueTable {
-    .tableFootStyle .links {
+  .container {
+    width: 85%;
+    margin: 0 auto;
+
+    @include media("<=phone") {
+      width: 100%;
+      margin: 0;
+    }
+    
+    @include media(">phone", "<tablet") {
+    }
+    
+    @include media(">tablet", "<950px") {
+    }
+  
+    .blueTable {
+      .tableFootStyle .links {
        a {
           cursor: pointer;
         }
@@ -81,7 +96,7 @@ div.blueTable {
           text-decoration: underline;
       }
     }
-
+    
     .news-link {
       color:$primary-color;
       text-decoration: none;
@@ -103,5 +118,6 @@ div.blueTable {
     }
 
   }
+}
 
 

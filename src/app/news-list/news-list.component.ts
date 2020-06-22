@@ -81,33 +81,30 @@ export class NewsListComponent implements OnInit, AfterViewInit {
       });
   }
 
-  changePage(increment) {
-    this.page += increment;
-    // this.router.navigate(['/newsList', this.page]);
-  }
-
   makeChart(newsData) {
-    const labelsArr = [];
-    const dataArr = [];
+    if (isPlatformBrowser(this._platformId)) {
+      const labelsArr = [];
+      const dataArr = [];
 
-    newsData.forEach((hit) => {
-      if (!hit.hide) {
-        labelsArr.push(hit.objectID);
-        dataArr.push(hit.points);
-      }
-    });
-
-    this.chartData = {
-      labels: labelsArr,
-      datasets: [
-        {
-          label: 'Votes',
-          data: dataArr,
-          fill: false,
-          borderColor: '#4bc0c0'
+      newsData.forEach((hit) => {
+        if (!hit.hide) {
+          labelsArr.push(hit.objectID);
+          dataArr.push(hit.points);
         }
-      ]
-    };
+      });
+
+      this.chartData = {
+        labels: labelsArr,
+        datasets: [
+          {
+            label: 'Votes',
+            data: dataArr,
+            fill: false,
+            borderColor: '#4bc0c0'
+          }
+        ]
+      };
+    }
   }
 
   upvote(hit, newsData) {
