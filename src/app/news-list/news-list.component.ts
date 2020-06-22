@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { ApiServiceService } from '../services/api-service.service';
 import { LocalStorageService } from '../services/local-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { EventReplayer } from 'preboot';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
   styleUrls: ['./news-list.component.scss']
 })
 
-export class NewsListComponent implements OnInit {
+export class NewsListComponent implements OnInit, AfterViewInit {
   newsList = [] as any;
   page = 1;
   nbPages = 0;
@@ -21,7 +22,7 @@ export class NewsListComponent implements OnInit {
   dataLoding = false;
 
   // tslint:disable-next-line: max-line-length
-  constructor(@Inject(PLATFORM_ID) private _platformId: any, private api: ApiServiceService, private localStore: LocalStorageService, private route: ActivatedRoute, private router: Router) {
+  constructor(@Inject(PLATFORM_ID) private _platformId: any, private replayer: EventReplayer, private api: ApiServiceService, private localStore: LocalStorageService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -131,6 +132,12 @@ export class NewsListComponent implements OnInit {
 
     this.newsList = this.localStore.fillLocalData(newsData);
     this.makeChart(this.newsList);
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this._platformId)) {
+      this.replayer.replayAll();
+    }
   }
 
 }

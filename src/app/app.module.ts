@@ -9,6 +9,8 @@ import { NewsListComponent } from './news-list/news-list.component';
 import { ChartModule } from 'primeng/chart';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { TransferHttpCacheModule } from '@nguniversal/common';
+import { PrebootModule } from 'preboot';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
     DateAgoPipe
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'hackerNewsClone' }),
+    BrowserTransferStateModule,
+    PrebootModule.withConfig({ appRoot: 'app-root' }),
     TransferHttpCacheModule,
     AppRoutingModule,
     HttpClientModule,
