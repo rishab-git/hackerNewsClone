@@ -9,6 +9,7 @@ import { NewsListComponent } from './news-list/news-list.component';
 import { ChartModule } from 'primeng/chart';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,

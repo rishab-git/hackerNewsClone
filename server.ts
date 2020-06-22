@@ -22,13 +22,31 @@ import { join } from 'path';
 
 import 'localstorage-polyfill';
 const compression = require('compression');
+// const minifyHTML = require('express-minify-html');
 
 // tslint:disable-next-line: no-string-literal
 global['localStorage'] = localStorage;
 
 // Express server
 const app = express();
+
 app.use(compression());
+
+/*app.use(minifyHTML({
+  override: true,
+  exception_url: false,
+  htmlMinifier: {
+    removeComments: true,
+    collapseWhitespace: true,
+    collapseBooleanAttributes: true,
+    removeAttributeQuotes: true,
+    removeEmptyAttributes: true,
+    minifyJS: true,
+    minifyCSS: true
+  }
+}));*/
+
+
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
