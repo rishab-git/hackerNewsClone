@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ApiServiceService } from '../services/api-service.service';
 import { LocalStorageService } from '../services/local-storage.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 
 @Component({
@@ -19,13 +21,15 @@ export class NewsListComponent implements OnInit {
   dataLoding = false;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private api: ApiServiceService, private localStore: LocalStorageService, private route: ActivatedRoute, private router: Router) {
+  constructor(@Inject(PLATFORM_ID) private _platformId: any, private api: ApiServiceService, private localStore: LocalStorageService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.page = +(params.page ? params.page : 1); // (+) converts string 'id' to a number
-      this.getNews(this.page);
+      if (isPlatformBrowser(this._platformId)) {
+        this.getNews(this.page);
+      }
     });
 
     this.chartOptions = {
