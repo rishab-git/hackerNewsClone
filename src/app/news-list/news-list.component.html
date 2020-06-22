@@ -40,9 +40,11 @@
 <div class=" blueTable outerTableFooter">
     <div class="tableFootStyle">
         <div class="links">
-            <a (click)="changePage(-1);" [class.disabled]="page <= 1" [attr.aria-disabled]="page <= 1">&laquo;
+            <a [routerLink]="['/newsList', this.page - 1]" [class.disabled]="page <= 1"
+                [attr.aria-disabled]="page <= 1">&laquo;
                 Previous</a>
-            <a (click)="changePage(1);" [class.disabled]="page >= nbPages" [attr.aria-disabled]="page >= nbPages">Next
+            <a [routerLink]="['/newsList', this.page + 1]" [class.disabled]="page >= nbPages"
+                [attr.aria-disabled]="page >= nbPages">Next
                 &raquo;</a></div>
     </div>
 </div>

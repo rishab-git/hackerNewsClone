@@ -28,7 +28,6 @@ export class NewsListComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.page = +(params.page ? params.page : 1); // (+) converts string 'id' to a number
       // if (isPlatformBrowser(this._platformId)) {
-      // if (this.page) {
       this.getNews(this.page);
       // }
     });
@@ -83,7 +82,7 @@ export class NewsListComponent implements OnInit {
 
   changePage(increment) {
     this.page += increment;
-    this.router.navigate(['/newsList', this.page]);
+    // this.router.navigate(['/newsList', this.page]);
   }
 
   makeChart(newsData) {
