@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="divTable blueTable" aria-labelledby="newsList" role="table" aria-label="News List" aria-rowcount="-1">
+    <div class="divTable blueTable" role="table" aria-label="News List" aria-rowcount="-1">
         <div class="divTableHeading" role="rowgroup">
             <div class="divTableRow" role="row">
                 <div class="divTableHead" role="columnheader">Comments</div>
@@ -11,28 +11,27 @@
         <div class="divTableBody" role="rowgroup">
             <div class="divTableRow" *ngFor="let item of newsList; let i = index" role="row" [attr.aria-rowindex]="i">
                 <ng-container *ngIf="!item.hide">
-                    <div class="divTableCell" [attr.aria-labelledby]="item.num_comments ? item.num_comments : 0"
-                        role="cell">
+                    <div class="divTableCell" [attr.aria-label]="item.num_comments ? item.num_comments : 0" role="cell">
                         {{item.num_comments ? item.num_comments : 0}}</div>
-                    <div class="divTableCell" role="cell" [attr.aria-labelledby]="item.points">{{item.points}}</div>
+                    <div class="divTableCell" role="cell" [attr.aria-label]="item.points">{{item.points}}</div>
                     <div class="divTableCell" role="cell">
                         <a id="">
-                            <div class="votearrow" title="upvote" [attr.aria-labelledby]="upvote"
+                            <div class="votearrow" title="upvote" [attr.aria-label]="upvote"
                                 (click)="upvote(item, newsList)"></div>
                         </a>
                     </div>
                     <div class="divTableCell detailsCell" role="cell">
-                        <a href="{{item.url}}" target="_blank" class="news-link" [attr.aria-labelledby]="item.title">
+                        <a href="{{item.url}}" target="_blank" class="news-link" [attr.aria-label]="item.title">
                             {{item.title}}
                         </a>
                         <span class="news-link-sub">by</span>
-                        <a class="news-link-author" [attr.aria-labelledby]="item.author">
+                        <a class="news-link-author" [attr.aria-label]="item.author">
                             {{item.author}}
                         </a>
                         <span class="news-link-sub">{{item.created_at | dateAgo}}</span>
                         &nbsp;
                         <span class="news-link-sub">[</span>
-                        <a (click)="hide(item, newsList)" class="news-link-hide" [attr.aria-labelledby]="hide">
+                        <a (click)="hide(item, newsList)" class="news-link-hide" [attr.aria-label]="hide">
                             hide
                         </a>
                         <span class="news-link-sub">]</span>
@@ -45,10 +44,10 @@
         <div class="tableFootStyle">
             <div class="links">
                 <a [routerLink]="['/newsList', this.page - 1]" [class.disabled]="page <= 1"
-                    [attr.aria-disabled]="page <= 1" aria-labelledby="previous">&laquo;
+                    [attr.aria-disabled]="page <= 1" aria-label="previous">&laquo;
                     Previous</a>
                 <a [routerLink]="['/newsList', this.page + 1]" [class.disabled]="page >= nbPages"
-                    [attr.aria-disabled]="page >= nbPages" aria-labelledby="Next">Next
+                    [attr.aria-disabled]="page >= nbPages" aria-label="Next">Next
                     &raquo;</a></div>
         </div>
     </div>

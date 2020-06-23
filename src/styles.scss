@@ -68,8 +68,6 @@ body {
 ///
 /// Reads a list of media query expressions and separates logical disjunctions into different branches
 ///
-/// @author Eduardo Boucas
-///
 /// @param {List}   $expressions  - list of expressions
 ///
 /// @throws `$expression` is not a valid expression
@@ -118,8 +116,6 @@ body {
 
 ///
 /// Parses a string to form a media query expression
-///
-/// @author Eduardo Boucas
 ///
 /// @param {String}   $expression  - expression (in string)
 ///
@@ -190,8 +186,6 @@ body {
 ///
 /// Replaces the first occurence of the string with the replacement string
 ///
-/// @author Eduardo Boucas
-///
 /// @param {String}   $search  - The value being searched for
 /// @param {String}   $replace  - The replacement string
 /// @param {String}   $subject  - The string being replaced on
@@ -214,8 +208,6 @@ body {
 
 ///
 /// Casts a number to a string
-///
-/// @author Hugo Giraudel
 ///
 /// @param {String}   $string  - Number to be parsed
 ///
