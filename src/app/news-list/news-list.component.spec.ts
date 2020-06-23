@@ -12,7 +12,6 @@ describe('NewsListComponent', () => {
   let component: NewsListComponent;
   let fixture: ComponentFixture<NewsListComponent>;
   let httpMock;
-  let apiService;
   const fakeNewsData = {
     hits: [{
       created_at: '2020-06-23T06:08:51.000Z',
