@@ -30,39 +30,8 @@ global['localStorage'] = localStorage;
 // Express server
 const app = express();
 
-const minifyHTML = require('express-minify-html-2');
-
-app.use(minifyHTML({
-  override: true,
-  exception_url: false,
-  htmlMinifier: {
-    removeComments: true,
-    collapseWhitespace: true,
-    collapseBooleanAttributes: true,
-    removeAttributeQuotes: true,
-    removeEmptyAttributes: true,
-    minifyJS: true,
-    minifyCSS: true
-  }
-}));
 
 app.use(compression());
-
-/*app.use(minifyHTML({
-  override: true,
-  exception_url: false,
-  htmlMinifier: {
-    removeComments: true,
-    collapseWhitespace: true,
-    collapseBooleanAttributes: true,
-    removeAttributeQuotes: true,
-    removeEmptyAttributes: true,
-    minifyJS: true,
-    minifyCSS: true
-  }
-}));*/
-
-
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
