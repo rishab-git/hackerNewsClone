@@ -21,4 +21,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Aproach
 
-Render the app server side for the first load. 
+Enable the app to use dynamic SSR with Angular Universal schema.
+Render the app server side for the first load. Avoid duplicate ajax call (the one made on the server vs the one when client loads) using TransferHttpCacheModule.
+During the time the client scripts are loading record user events and replay them with Preboot.
+Local storage is used to store Upvotes and the "hide" parameter on the browser.
+The Points VS Story ID chart is made using Chart.js (PrimeNg provides a wrapper for this for Angular).
+
+## Stack
+Angular 8 with Angular Universal
+Preboot
+PrimeNg
