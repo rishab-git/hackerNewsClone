@@ -15,7 +15,7 @@ module.exports = {
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
   optimization: {
-    minimize: false,
+    minimize: true,
     minimizer: [new TerserPlugin({
       cache: true,
       parallel: true,
