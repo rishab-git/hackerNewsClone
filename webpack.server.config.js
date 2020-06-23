@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 // const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  mode: 'none',
+  mode: 'production',
   entry: {
     // This is our Express server for Dynamic universal
     server: './server.ts'
