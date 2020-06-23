@@ -3,19 +3,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
-  mode: 'none',
+  mode: 'production',
   entry: {
     // This is our Express server for Dynamic universal
     server: './server.ts'
   },
-  externals: {
-    './dist/server/main': 'require("./server/main")'
-  },
+  externals: [
+    // './dist/server/main' = 'require("./server/main")',
+    nodeExternals()
+  ],
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [new TerserPlugin({
       cache: true,
       parallel: true,

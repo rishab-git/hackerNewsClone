@@ -30,7 +30,7 @@ global['localStorage'] = localStorage;
 // Express server
 const app = express();
 
-/*const minifyHTML = require('express-minify-html-2');
+const minifyHTML = require('express-minify-html-2');
 
 app.use(minifyHTML({
   override: true,
@@ -44,7 +44,7 @@ app.use(minifyHTML({
     minifyJS: true,
     minifyCSS: true
   }
-}));*/
+}));
 
 app.use(compression());
 
