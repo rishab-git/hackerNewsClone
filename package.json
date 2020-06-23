@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --aot --vendor-chunk --common-chunk --delete-output-path --buildOptimizer",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -33,7 +33,6 @@
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
     "chart.js": "^2.9.3",
     "express": "^4.17.1",
-    "express-minify-html-2": "^1.0.1",
     "localstorage-polyfill": "^1.0.1",
     "preboot": "^7.0.0",
     "primeng": "^9.1.0",
