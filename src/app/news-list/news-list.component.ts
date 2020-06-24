@@ -20,6 +20,7 @@ export class NewsListComponent implements OnInit, AfterViewInit {
   chartData: any;
   chartOptions: any;
   dataLoding = false;
+  isBrowser = isPlatformBrowser(this._platformId);
 
   // tslint:disable-next-line: max-line-length
   constructor(@Inject(PLATFORM_ID) private _platformId: any, private replayer: EventReplayer, private api: ApiServiceService, private localStore: LocalStorageService, private route: ActivatedRoute, private router: Router) {
@@ -32,39 +33,6 @@ export class NewsListComponent implements OnInit, AfterViewInit {
       this.getNews(this.page);
       // }
     });
-
-    this.chartOptions = {
-      title: {
-        display: true,
-        text: 'StoryID VS Points',
-        fontSize: 16
-      },
-      legend: {
-        display: false
-      },
-      scales: {
-        yAxes: [
-          {
-            scaleLabel: {
-              display: true,
-              labelString: 'Points',
-              fontStyle: 'bold',
-              fontSize: 16
-            }
-          }
-        ],
-        xAxes: [
-          {
-            scaleLabel: {
-              display: true,
-              labelString: 'Story ID',
-              fontStyle: 'bold',
-              fontSize: 16
-            }
-          }
-        ]
-      }
-    };
   }
 
   getNews(pageNo) {
@@ -83,6 +51,38 @@ export class NewsListComponent implements OnInit, AfterViewInit {
 
   makeChart(newsData) {
     if (isPlatformBrowser(this._platformId)) {
+      this.chartOptions = {
+        title: {
+          display: true,
+          text: 'StoryID VS Points',
+          fontSize: 16
+        },
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: 'Points',
+                fontStyle: 'bold',
+                fontSize: 16
+              }
+            }
+          ],
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: 'Story ID',
+                fontStyle: 'bold',
+                fontSize: 16
+              }
+            }
+          ]
+        }
+      };
       const labelsArr = [];
       const dataArr = [];
 

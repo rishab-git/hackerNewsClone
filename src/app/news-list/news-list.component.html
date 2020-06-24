@@ -52,7 +52,8 @@
         </div>
     </div>
 
-    <p-chart type="line" [data]="chartData" [options]="chartOptions" width="98%" height="50vh" responsive="true">
+    <p-chart *ngIf="isBrowser" type="line" [data]="chartData" [options]="chartOptions" width="98%" height="50vh"
+        responsive="true">
     </p-chart>
 </div>
 <div class="loader" *ngIf="dataLoding" role="alert">Data Loading...</div>
