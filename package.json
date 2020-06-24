@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --aot --vendor-chunk --common-chunk --delete-output-path --buildOptimizer",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compile:server": "webpack -p --config webpack.server.config.js --progress --colors",
